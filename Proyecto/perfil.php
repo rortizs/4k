@@ -327,7 +327,7 @@ include "modulos/panel.php";
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="#objetivos" data-toggle="tab">Objetivos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Imagenes" data-toggle="tab">Imagenes</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="#logoshoestore" data-toggle="tab">Logotipo de la Empresa</a></li>
                   </ul>
                 </div><!-- /.card-header -->
@@ -410,15 +410,6 @@ include "modulos/panel.php";
 
                           <div class="timeline-item">
 
-
-
-                            <div class="timeline-body">
-                              NADA
-                            </div>
-                            <div class="timeline-footer">
-                              <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                              <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
                           </div>
                         </div>
                         <!-- END timeline item -->
