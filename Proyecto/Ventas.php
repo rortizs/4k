@@ -179,8 +179,12 @@ include("modulos/panel.php");
 
 
                            <div class="modal-footer"> 
+                              <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                    <i class="fas fa-download"></i> Generate PDF
+                  </button>
                           <button class="btn btn-danger" type="reset"><span class="fa fa-times"></span> Cancelar</button> 
                           <button type="submit" name="btn-submit" id="btn-submit" class="btn btn-primary"><span class="fa fa-save"></span> Registrar Ventas</button> 
+
                           </div>
                                             </div>
 
@@ -212,7 +216,7 @@ include("modulos/panel.php");
                       <!-- Second Action --> 
                                       <div class="form-group"> 
                                                      <label for="field-12" class="control-label">Búsqueda de Clientes:</label> 
-         <input class="form-control" type="hidden" name="codcliente" id="codcliente"><input class="form-control" type="text" name="busqueda" id="busqueda" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Búsqueda de Cliente" required="required"><small><span class="symbol required"></span> Búsqueda de Cliente: Cédula o Nombre</small>
+         <input class="form-control" type="hidden" name="codcliente" id="codcliente"><input class="form-control" type="text" name="busqueda" id="busqueda" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Búsqueda de Cliente" required="required"><small><span class="symbol required"></span> Búsqueda de Cliente: DPI</small>
                                      </div>
                    
        
@@ -273,6 +277,17 @@ include("modulos/panel.php");
                                       <div class="form-group">  
                                                      <label for="field-12" class="control-label">Fecha de Venta:</label> 
 <input class="form-control" type="text" name="fecharegistro" id="fecharegistro" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese Fecha Venta" readonly="readonly"> 
+
+ <section class="content">
+              
+              <div class="row">
+                <div class="col-12">
+              
+                                               <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+                    Payment
+                  </button>
+
                     </div>
                                         </div>
                     
@@ -298,17 +313,7 @@ include("modulos/panel.php");
                   </div>
                   
                   
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light">                 
-                  
-              
-                     <hr>    
-                      <br>
-                         
-                         
-              
-
-</nav>
-
+     
 
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -395,86 +400,30 @@ include("modulos/panel.php");
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0 text-dark"><p class="bg-primary">Informe Diario</p></h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Operaciones del día</a></li>
-                <li class="breadcrumb-item active">Consultas</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-
-      </nav>
-      <!-- /.content-header -->
-      <!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCONTENEDORCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-->>
-      <!-- Main content -->
-     
-          <!-- /.row (main row) CLIENTES CLIENTES CLIENTES CLIENTE CLIENTES CLIENTES-->
-<nav>
-          <section class="content">
-      <div class="container-fluid">
-
-                    
+  
+   <nav class="main-header navbar navbar-expand navbar-white navbar-light">                 
+                  
+                  <section class="content">
+              
               <div class="row">
                 <!-- accepted payments column -->
-                <div class="col-6">
+                <div class="col-12">
                   <p class="lead">Tipos de Pago:</p>
                   <img src="dist/img/credit/visa.png" alt="Visa">
                   <img src="dist/img/credit/mastercard.png" alt="Mastercard">
                   <img src="dist/img/credit/american-express.png" alt="American Express">
                   <img src="dist/img/credit/paypal2.png" alt="Paypal">
 
-                 
-                </div>
-                <!-- /.col -->
-                <div class="col-6">
-                  <p class="lead">..</p>
 
-                  <div class="table-responsive">
-                    <table class="table">
-                      <tr>
-                        <th style="width:50%">Subtotal:</th>
-                        <td>$250.30</td>
-                      </tr>
-                      <tr>
-                        <th>Tax (9.3%)</th>
-                        <td>$10.34</td>
-                      </tr>
-                      <tr>
-                        <th>Shipping:</th>
-                        <td>$5.80</td>
-                      </tr>
-                      <tr>
-                        <th>Total:</th>
-                        <td>$265.24</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
+
+</nav>
+             
 
               <!-- this row will not appear when printing -->
-              <div class="row no-print">
-                <div class="col-12">
-                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
-                    Payment
-                  </button>
-                  <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                    <i class="fas fa-download"></i> Generate PDF
-                  </button>
+             
+
+
+
                 </div>
               </div>
             </div>
