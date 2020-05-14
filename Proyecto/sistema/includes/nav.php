@@ -24,7 +24,7 @@
 						<a href="#">Clientes</a>
 						<ul>
 							<li><a href="#">Nuevo Cliente</a></li>
-							<li><a href="./Ventas.php">Lista de Clientes</a></li>
+							<li><a href="#">Lista de Clientes</a></li>
 						</ul>
 					</li>
 
@@ -47,7 +47,7 @@
 					<li class="principal">
 						<a href="#">Facturas</a>
 						<ul>
-							<li><a href="#">Nuevo Factura</a></li>
+							<li><a href="/4k/Proyecto/Ventas.php">Nuevo Factura</a></li>
 							<li><a href="#">Facturas</a></li>
 						</ul>
 					</li>
@@ -71,14 +71,6 @@
 						<ul>
 							<li><a href="#">Nuevo Producto</a></li>
 							<li><a href="#">Lista de Productos</a></li>
-						</ul>
-					</li>
-
-					<li class="principal">
-						<a href="#">Facturas</a>
-						<ul>
-							<li><a href="#">Nuevo Factura</a></li>
-							<li><a href="#">Facturas</a></li>
 						</ul>
 					</li>
 				<?php } ?>
@@ -107,7 +99,7 @@
 					<li class="principal">
 						<a href="#">Facturas</a>
 						<ul>
-							<li><a href="#">Nuevo Factura</a></li>
+							<li><a href="/4k/Proyecto/Ventas.php">Nuevo Factura</a></li>
 							<li><a href="#">Facturas</a></li>
 						</ul>
 					</li>
