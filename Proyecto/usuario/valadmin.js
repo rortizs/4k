@@ -1,6 +1,0 @@
-function validaradmin() {
-    
-    if () {
-        alert("");
-    }
-}
