@@ -1,7 +1,11 @@
 <?php
-include("modulos/panel.php");
 
-?>
+session_start();
+if (empty($_SESSION['rol'])) {
+  header("location: ./");
+}
+
+include "../conexion.php"; ?>
 
 
 <!DOCTYPE html>
@@ -116,7 +120,7 @@ include("modulos/panel.php");
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            
+
 
 
             <!-- Add icons to the links using the .nav-icon class
@@ -142,16 +146,16 @@ include("modulos/panel.php");
 
 
 
-            
 
 
-            <!-- Add icons to the links using the .nav-icon class
+
+                <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           
 
 
 
-          </ul>
+
+              </ul>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
@@ -170,7 +174,7 @@ include("modulos/panel.php");
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Operaciones del día</a></li>
-                
+
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->

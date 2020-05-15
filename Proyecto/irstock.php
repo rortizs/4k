@@ -1,6 +1,10 @@
 <?php
-include "../modulos/panel.php";
-include_once 'dbconfig.php';
+
+if (empty($_SESSION['active'])) {
+  header('location: ../');
+}
+
+include "../conexion.php";
 
 if (isset($_GET['delete_id'])) {
   $sql_query = "DELETE FROM usuario WHERE Id_Usuario=" . $_GET['delete_id'];
@@ -92,7 +96,7 @@ background-repeat: no-repeat;
               <?php if ($row[count($row) - 1] == 1) { ?>
                 <td align="center"><a button class="btn btn-danger btn-xs" href="javascript:changestatus_id('<?php echo $row[0]; ?>',0)  ">Dar de Baja</a></td>
               <?php } else { ?>
-                
+
               <?php } ?>
               <td align="center"><a button class="btn btn-warning btn-xs" href="javascript:edt_id('<?php echo $row[0]; ?>')">Modificar</a></td>
               <td align="center"><a button class="btn btn-danger btn-xs" href="javascript:delete_id('<?php echo $row[0]; ?>')">Eliminar</a></td>

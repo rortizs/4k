@@ -1,24 +1,27 @@
 <?php
-include("modulos/panel.php");
 
-$db_host = "localhost";
-$db_user = "root";
-$db_pasword ="";
-$db_name = "dbsistemas";
+session_start();
+if (empty($_SESSION['rol'])) {
+  header("location: ./");
+}
 
-  //Lista de Tablas
-  $tabla_db1 = "usuario";      // tabla de usuarios
-  
-
-  //error_reporting(0); //No me muestra errores
-  
-  $conexion = new mysqli($db_host, $db_user, $db_pasword, $db_name);
+include "../conexion.php";
 
 
-  if ($conexion->connect_errno) {
-      echo "Nuestro sitio experimenta fallos....";
-      exit();
-  }
+
+//Lista de Tablas
+$tabla_db1 = "usuario"; // tabla de usuarios
+
+
+//error_reporting(0); //No me muestra errores
+
+$conexion = new mysqli($db_host, $db_user, $db_pasword, $db_name);
+
+
+if ($conexion->connect_errno) {
+  echo "Nuestro sitio experimenta fallos....";
+  exit();
+}
 ?>
 
 
@@ -54,6 +57,7 @@ $db_name = "dbsistemas";
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <head>
   <title>Programando Ando</title>
   <!-- Latest compiled and minified CSS -->
@@ -65,117 +69,125 @@ $db_name = "dbsistemas";
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
 
-    
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
 
 
 
 
-  
 
 
 
-  </div>
-  <div class="col-md-4"></div>
-</div>
 
-
-
-  
-  
-<body class="hold-transition sidebar-mini layout-fixed">
- 
-  <div class="wrapper">
-
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="Vistapanel.php" class="nav-link">Home</a>
-        </li>
-        
-
-<div class = "encabezado de página" >
-
-
-
-<h1 class="display-1"><p class="text-primary"><p><abbr title="4k">Zapateria</abbr> Novedades</p></p></h1>
-    </nav>
-    
-
- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-   
-
-
-<div class="col-lg-12">
-
-
-<p class="text-primary"><p class="font-weight-bold"><p class="bg-primary">Administracion de Ventas</p></p></p>
-
-    <center><h1>Productos a Vender</h1></center>
-
-    <form method="POST" action="Ventas.php" >
-
-    <div class="form-group">
-      <label for="Dpi">Codigo</label>
-      <input type="text" name="Dpi" class="form-control" id="Dpi">
+    </div>
+    <div class="col-md-4"></div>
   </div>
 
- 
-    <center>
-            <input type="submit" value="Consultar" class="btn btn-info" name="btn2">
-    </center>
-
-  </form>
 
 
-<?php
 
-    if(isset($_POST['btn1']))
-    {
-      include("abrir_conexion.php");
 
-if(isset($_POST['Dpi'])){
-      $dpi  = $_POST['Dpi'];
-      $nombre = $_POST['Nombre_Usuario'];
-      $dir = $_POST['Direccion'];
-      $tel = $_POST['Telefono'];
-}
-      mysqli_query($conexion, "INSERT INTO $tabla_db1 (Dpi,Nombre_Usuario,Direccion,Telefono) values ('$dpi','$nombre','$dir','$tel')");
-      //La variable $Conexion viene del archivo "Abrir_Conexion", la cual nos conectara a la base de datos
-      //y de paso hacemos el registro de datos.
-      
-      include("cerrar_conexion.php");
-      echo "Se insertaron Correctamente";
-    }
+  <body class="hold-transition sidebar-mini layout-fixed">
 
-    if(isset($_POST['btn2']))
-    {
-      include("abrir_conexion.php");
+    <div class="wrapper">
 
-       if(isset($_POST['Dpi'])){
-        $dpi = $_POST['Dpi'];
-}
-        
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="Vistapanel.php" class="nav-link">Home</a>
+          </li>
 
-        if($dpi=="") //VERIFICO QUE AGREGEN UN DOCUMENTO OBLIGATORIAMENTE.
-          {echo "Digita un Codigo por favor. (Ej: 123)";}
-        else
-        {  
-          $resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE Dpi = $dpi");
-          while($consulta = mysqli_fetch_array($resultados))
-          {
-            echo
-            "
+
+          <div class="encabezado de página">
+
+
+
+            <h1 class="display-1">
+              <p class="text-primary">
+                <p><abbr title="4k">Zapateria</abbr> Novedades</p>
+              </p>
+            </h1>
+      </nav>
+
+
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+
+
+        <div class="col-lg-12">
+
+
+          <p class="text-primary">
+            <p class="font-weight-bold">
+              <p class="bg-primary">Administracion de Ventas</p>
+            </p>
+          </p>
+
+          <center>
+            <h1>Productos a Vender</h1>
+          </center>
+
+          <form method="POST" action="Ventas.php">
+
+            <div class="form-group">
+              <label for="Dpi">Codigo</label>
+              <input type="text" name="Dpi" class="form-control" id="Dpi">
+            </div>
+
+
+            <center>
+              <input type="submit" value="Consultar" class="btn btn-info" name="btn2">
+            </center>
+
+          </form>
+
+
+          <?php
+
+          if (isset($_POST['btn1'])) {
+            include("abrir_conexion.php");
+
+            if (isset($_POST['Dpi'])) {
+              $dpi  = $_POST['Dpi'];
+              $nombre = $_POST['Nombre_Usuario'];
+              $dir = $_POST['Direccion'];
+              $tel = $_POST['Telefono'];
+            }
+            mysqli_query($conexion, "INSERT INTO $tabla_db1 (Dpi,Nombre_Usuario,Direccion,Telefono) values ('$dpi','$nombre','$dir','$tel')");
+            //La variable $Conexion viene del archivo "Abrir_Conexion", la cual nos conectara a la base de datos
+            //y de paso hacemos el registro de datos.
+
+            include("cerrar_conexion.php");
+            echo "Se insertaron Correctamente";
+          }
+
+          if (isset($_POST['btn2'])) {
+            include("abrir_conexion.php");
+
+            if (isset($_POST['Dpi'])) {
+              $dpi = $_POST['Dpi'];
+            }
+
+
+            if ($dpi == "") //VERIFICO QUE AGREGEN UN DOCUMENTO OBLIGATORIAMENTE.
+            {
+              echo "Digita un Codigo por favor. (Ej: 123)";
+            } else {
+              $resultados = mysqli_query($conexion, "SELECT * FROM $tabla_db1 WHERE Dpi = $dpi");
+              while ($consulta = mysqli_fetch_array($resultados)) {
+                echo
+                  "
               <table width=\"90%\"border=\"3\">
                 <tr>
                   <td><center>Documento</center></td>
@@ -185,249 +197,249 @@ if(isset($_POST['Dpi'])){
                 </tr>
 
                 <tr>
-                  <td>".$consulta['Dpi']."</td>
-                  <td>".$consulta['Nombre_Usuario']."</td>
-                  <td>".$consulta['Direccion']."</td>
-                  <td>".$consulta['Telefono']."</td>
+                  <td>" . $consulta['Dpi'] . "</td>
+                  <td>" . $consulta['Nombre_Usuario'] . "</td>
+                  <td>" . $consulta['Direccion'] . "</td>
+                  <td>" . $consulta['Telefono'] . "</td>
                 </tr>
               </table>
             ";
+              }
+            }
+
+            include("cerrar_conexion.php");
           }
-        }
-
-      include("cerrar_conexion.php");
-    }
 
 
 
-    if(isset($_POST['AgregaProductoVentas']))
-    {
-      include("abrir_conexion.php");
+          if (isset($_POST['AgregaProductoVentas'])) {
+            include("abrir_conexion.php");
 
 
-      mysqli_query($conexion, "SELECT FROM $tabla_db1 where Dpi,Nombre_Usuario,Direccion,Telefono INSERT INTO productoventas (Dpi,Nombre_Usuario,Direccion,Telefono) values ('$dpi','$nombre','$dir','$tel')");
-      //La variable $Conexion viene del archivo "Abrir_Conexion", la cual nos conectara a la base de datos
-      //y de paso hacemos el registro de datos.
-      
-      include("cerrar_conexion.php");
-      echo "Se insertaron Correctamente";
-    }
+            mysqli_query($conexion, "SELECT FROM $tabla_db1 where Dpi,Nombre_Usuario,Direccion,Telefono INSERT INTO productoventas (Dpi,Nombre_Usuario,Direccion,Telefono) values ('$dpi','$nombre','$dir','$tel')");
+            //La variable $Conexion viene del archivo "Abrir_Conexion", la cual nos conectara a la base de datos
+            //y de paso hacemos el registro de datos.
 
-    if(isset($_POST['btn2']))
-    {
-      include("abrir_conexion.php");
-
-       if(isset($_POST['Dpi'])){
-        $dpis = $_POST['Dpi'];
-}
-        
-
-        if($dpis=="") //VERIFICO QUE AGREGEN UN DOCUMENTO OBLIGATORIAMENTE.
-          {echo "";}
-        else
-        {  
-          $resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE Dpi = $dpis");
-          while($consulta = mysqli_fetch_array($resultados))
-          {
-            
+            include("cerrar_conexion.php");
+            echo "Se insertaron Correctamente";
           }
-        }
 
-      include("cerrar_conexion.php");
-    }
+          if (isset($_POST['btn2'])) {
+            include("abrir_conexion.php");
 
-      ?>
-
-      <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
+            if (isset($_POST['Dpi'])) {
+              $dpis = $_POST['Dpi'];
+            }
 
 
-  </form>
+            if ($dpis == "") //VERIFICO QUE AGREGEN UN DOCUMENTO OBLIGATORIAMENTE.
+            {
+              echo "";
+            } else {
+              $resultados = mysqli_query($conexion, "SELECT * FROM $tabla_db1 WHERE Dpi = $dpis");
+              while ($consulta = mysqli_fetch_array($resultados)) {
+              }
+            }
+
+            include("cerrar_conexion.php");
+          }
+
+          ?>
+
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+
+
+              </form>
 
 
 
-  <?php
+              <?php
 
-  ?>
-
-
-
-  </div>
-  <div class="col-md-4"></div>
-</div>
+              ?>
 
 
-  <div class="panel-body">
 
-
-                                                  <div id="error">
-                                               
-                                                     </div>
-                  <div class="row">  
-                     <div class="col-md-2"> 
-                                                 <div class="form-group"> 
-                                                  
-<input class="form-control" type="hidden" name="existencia" id="existencia">
-<input class="form-control" type="hidden" name="codcategoria" id="codcategoria">
-<input class="form-control" type="hidden" name="precioconiva" id="precioconiva">
-<input class="form-control" type="hidden" name="precio" id="precio"> 
-<input class="form-control" type="hidden" name="ivaproducto" id="ivaproducto">  
-
-                                                  </div> 
-                                         </div>
-               
-                  
-                  
-              
-<div align="right"><button type="button" id="AgregaProductoVentas" class="btn btn-primary"><span class="fa fa-shopping-cart"></span> Agregar Producto</button> 
-<button type="button" id="vaciarventas" class="btn btn-danger" ><span class="fa fa-trash-o"></span> Vaciar Productos</button>
-<a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><button type="button" class="btn btn-success"><span class="fa fa-user"></span> Nuevo Cliente</button></a>
- <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                    <i class="fas fa-download"></i> Generate PDF
-                  </button>
-                          <button class="btn btn-danger" type="reset"><span class="fa fa-times"></span> Cancelar</button> 
-                          <button type="submit" name="btn-submit" id="btn-submit" class="btn btn-primary"><span class="fa fa-save"></span> Registrar Ventas</button> 
-</div>
-                  <hr>  
-                    
-                    
-                    
-                    
-
-
-                           <div class="modal-footer"> 
-                             
-
-                          </div>
-                                            </div>
-
-
-                                            <div class="col-lg-12 ds">
-                   
-            <h3><p class="bg-primary">Datos Factura</p></h3>
-            
-                                        
-                      <!-- First Action -->
-                                      <div class="form-group"> 
-                                                     <label for="field-12" class="control-label">Código de Venta:</label> 
-          <input type="hidden" name="codcaja" id="codcaja" value="1">
-      <div id="nroventa"><input class="form-control" type="text" name="codventa" id="codventa" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese N° de Venta" value="2020-001-V00657" readonly="readonly"></div> 
-                    </div>  
-                                        
-                      <!-- First Action -->
-                                      <div class="form-group"> 
-                                                     <label for="field-12" class="control-label">N° de Serie:</label> 
-          <div id="nroserieve"><input class="form-control" type="text" name="codserieve" id="codserieve" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese N° de Serie" value="12052020-001-V00037" readonly="readonly"></div> 
-                    </div> 
-                                        
-                      <!-- First Action -->
-                                      <div class="form-group"> 
-                                                     <label for="field-12" class="control-label">N° de Autorización:</label> 
-          <div id="Id_Usuario"><input class="form-control" type="text" name="Id_Usuario" id="Id_Usuario" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese N° de Autorización" value="VAHXF-2020-001-V00657" readonly="readonly"></div> 
-                    </div> 
-          
-                      <!-- Second Action --> 
-                                      <div class="form-group"> 
-                                                     <label for="field-12" class="control-label">Búsqueda de Clientes:</label> 
-         <input class="form-control" type="hidden" name="codcliente" id="codcliente"><input class="form-control" type="text" name="busqueda" id="busqueda" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Búsqueda de Cliente" required="required"><small><span class="symbol required"></span> Búsqueda de Cliente: DPI</small>
-                                     </div>
-                   
-       
-           <div class="form-group">
-           
-           <div class="radio">Tipo de Pago: 
-              <label>
-                <input name="tipopagove" id="tipopagove" value="CONTADO" onClick="BuscaFormaVenta()" checked="checked" type="radio">
-                Contado
-              </label>&nbsp;&nbsp;
-              <label>
-                <input name="tipopagove" id="tipopagove" value="CREDITO" onClick="BuscaFormaVenta(); MuestraCambioPagos();" type="radio">
-                Crédito
-              </label>
             </div>
-            
-                      </div>
-                               
-              
-      <div id="muestraformapagoventas"><div class="form-group"> 
-                                                     <label for="field-12" class="control-label">Forma de Pago:</label> 
-       <select name="formapagove" id="formapagove" class="form-control" onChange="MuestraCambioPagos()" required="required">
-         <option value="">SELECCIONE</option>
-       <option value="EFECTIVO">EFECTIVO</option>
-       <option value="CHEQUE">CHEQUE</option>
-       <option value="CHEQUE POSFECHADO">CHEQUE POSFECHADO</option>
-       <option value="TARJETA DE CREDITO">TARJETA DE CRÉDITO</option>
-       <option value="TRANSFERENCIA">TRANSFERENCIA</option>
-      </select>
-                                     </div></div>
-                   
-      <div id="muestracambiospagos"></div>
-        
-    
-      <div class="form-group">
-           
-           <div class="radio">
-              <label>
-                <input name="tiporeporte" id="tiporeporte" value="TICKET" checked="checked" type="radio">
-                Imprimir Ticket
-              </label>&nbsp;&nbsp;&nbsp;&nbsp;
-              <label>
-                <input name="tiporeporte" id="tiporeporte" value="FACTURA" type="radio">
-                Imprimir Factura
-              </label>
+            <div class="col-md-4"></div>
+          </div>
+
+
+          <div class="panel-body">
+
+
+            <div id="error">
+
             </div>
-            
-                      </div>
-              
-                
-             <div class="form-group">  
-                                <label for="field-12" class="control-label">Descuento de Venta %:</label> 
-<input class="form-control number calculodescuentove" type="text" name="descuento" id="descuento" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese Descuento de Venta" value="0" required="required"> 
-                    </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="form-group">
 
-            
-            
-                                      <div class="form-group">  
-                                                     <label for="field-12" class="control-label">Fecha de Venta:</label> 
-<input class="form-control" type="text" name="fecharegistro" id="fecharegistro" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese Fecha Venta" readonly="readonly"> 
+                  <input class="form-control" type="hidden" name="existencia" id="existencia">
+                  <input class="form-control" type="hidden" name="codcategoria" id="codcategoria">
+                  <input class="form-control" type="hidden" name="precioconiva" id="precioconiva">
+                  <input class="form-control" type="hidden" name="precio" id="precio">
+                  <input class="form-control" type="hidden" name="ivaproducto" id="ivaproducto">
 
- <section class="content">
-              
-              <div class="row">
-                <div class="col-12">
-              
-                                               <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
-                    Payment
-                  </button>
-
-                    </div>
-                                        </div>
-                    
-                    
-                    
-                      
-                         
-             
-
-
-
-                           </div>
-              
-              
-              
-                                  </div>
-                                </div>
-                            </div>
-            
-            
-            
+                </div>
               </div>
+
+
+
+
+              <div align="right"><button type="button" id="AgregaProductoVentas" class="btn btn-primary"><span class="fa fa-shopping-cart"></span> Agregar Producto</button>
+                <button type="button" id="vaciarventas" class="btn btn-danger"><span class="fa fa-trash-o"></span> Vaciar Productos</button>
+                <a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><button type="button" class="btn btn-success"><span class="fa fa-user"></span> Nuevo Cliente</button></a>
+                <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                  <i class="fas fa-download"></i> Generate PDF
+                </button>
+                <button class="btn btn-danger" type="reset"><span class="fa fa-times"></span> Cancelar</button>
+                <button type="submit" name="btn-submit" id="btn-submit" class="btn btn-primary"><span class="fa fa-save"></span> Registrar Ventas</button>
+              </div>
+              <hr>
+
+
+
+
+
+
+              <div class="modal-footer">
+
+
+              </div>
+            </div>
+
+
+            <div class="col-lg-12 ds">
+
+              <h3>
+                <p class="bg-primary">Datos Factura</p>
+              </h3>
+
+
+              <!-- First Action -->
+              <div class="form-group">
+                <label for="field-12" class="control-label">Código de Venta:</label>
+                <input type="hidden" name="codcaja" id="codcaja" value="1">
+                <div id="nroventa"><input class="form-control" type="text" name="codventa" id="codventa" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese N° de Venta" value="2020-001-V00657" readonly="readonly"></div>
+              </div>
+
+              <!-- First Action -->
+              <div class="form-group">
+                <label for="field-12" class="control-label">N° de Serie:</label>
+                <div id="nroserieve"><input class="form-control" type="text" name="codserieve" id="codserieve" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese N° de Serie" value="12052020-001-V00037" readonly="readonly"></div>
+              </div>
+
+              <!-- First Action -->
+              <div class="form-group">
+                <label for="field-12" class="control-label">N° de Autorización:</label>
+                <div id="Id_Usuario"><input class="form-control" type="text" name="Id_Usuario" id="Id_Usuario" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese N° de Autorización" value="VAHXF-2020-001-V00657" readonly="readonly"></div>
+              </div>
+
+              <!-- Second Action -->
+              <div class="form-group">
+                <label for="field-12" class="control-label">Búsqueda de Clientes:</label>
+                <input class="form-control" type="hidden" name="codcliente" id="codcliente"><input class="form-control" type="text" name="busqueda" id="busqueda" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Búsqueda de Cliente" required="required"><small><span class="symbol required"></span> Búsqueda de Cliente: DPI</small>
+              </div>
+
+
+              <div class="form-group">
+
+                <div class="radio">Tipo de Pago:
+                  <label>
+                    <input name="tipopagove" id="tipopagove" value="CONTADO" onClick="BuscaFormaVenta()" checked="checked" type="radio">
+                    Contado
+                  </label>&nbsp;&nbsp;
+                  <label>
+                    <input name="tipopagove" id="tipopagove" value="CREDITO" onClick="BuscaFormaVenta(); MuestraCambioPagos();" type="radio">
+                    Crédito
+                  </label>
+                </div>
+
+              </div>
+
+
+              <div id="muestraformapagoventas">
+                <div class="form-group">
+                  <label for="field-12" class="control-label">Forma de Pago:</label>
+                  <select name="formapagove" id="formapagove" class="form-control" onChange="MuestraCambioPagos()" required="required">
+                    <option value="">SELECCIONE</option>
+                    <option value="EFECTIVO">EFECTIVO</option>
+                    <option value="CHEQUE">CHEQUE</option>
+                    <option value="CHEQUE POSFECHADO">CHEQUE POSFECHADO</option>
+                    <option value="TARJETA DE CREDITO">TARJETA DE CRÉDITO</option>
+                    <option value="TRANSFERENCIA">TRANSFERENCIA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="muestracambiospagos"></div>
+
+
+              <div class="form-group">
+
+                <div class="radio">
+                  <label>
+                    <input name="tiporeporte" id="tiporeporte" value="TICKET" checked="checked" type="radio">
+                    Imprimir Ticket
+                  </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input name="tiporeporte" id="tiporeporte" value="FACTURA" type="radio">
+                    Imprimir Factura
+                  </label>
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+                <label for="field-12" class="control-label">Descuento de Venta %:</label>
+                <input class="form-control number calculodescuentove" type="text" name="descuento" id="descuento" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese Descuento de Venta" value="0" required="required">
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="field-12" class="control-label">Fecha de Venta:</label>
+                <input class="form-control" type="text" name="fecharegistro" id="fecharegistro" onKeyUp="this.value=this.value.toUpperCase();" autocomplete="off" placeholder="Ingrese Fecha Venta" readonly="readonly">
+
+                <section class="content">
+
+                  <div class="row">
+                    <div class="col-12">
+
+                      <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                      <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+                        Payment
+                      </button>
+
+                    </div>
                   </div>
-                  
-                  
-     
+
+
+
+
+
+
+
+
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+    </div>
+    </div>
+
+
+
 
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -437,9 +449,9 @@ if(isset($_POST['Dpi'])){
         <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
 
-   
+
       <div class="sidebar">
-      
+
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
@@ -514,78 +526,78 @@ if(isset($_POST['Dpi'])){
       <!-- /.sidebar -->
     </aside>
 
-  
-   <nav class="main-header navbar navbar-expand navbar-white navbar-light">                 
-                  
-                  <section class="content">
-              
-              <div class="row">
-                <!-- accepted payments column -->
-                <div class="col-12">
-                  <p class="lead">Tipos de Pago:</p>
-                  <img src="dist/img/credit/visa.png" alt="Visa">
-                  <img src="dist/img/credit/mastercard.png" alt="Mastercard">
-                  <img src="dist/img/credit/american-express.png" alt="American Express">
-                  <img src="dist/img/credit/paypal2.png" alt="Paypal">
+
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+      <section class="content">
+
+        <div class="row">
+          <!-- accepted payments column -->
+          <div class="col-12">
+            <p class="lead">Tipos de Pago:</p>
+            <img src="dist/img/credit/visa.png" alt="Visa">
+            <img src="dist/img/credit/mastercard.png" alt="Mastercard">
+            <img src="dist/img/credit/american-express.png" alt="American Express">
+            <img src="dist/img/credit/paypal2.png" alt="Paypal">
 
 
 
-</nav>
-             
-
-              <!-- this row will not appear when printing -->
-             
+    </nav>
 
 
+    <!-- this row will not appear when printing -->
 
-                </div>
-              </div>
-            </div>
-            <!-- /.invoice -->
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-      </nav>
+
+
+
+    </div>
+    </div>
+    </div>
+    <!-- /.invoice -->
+    </div><!-- /.col -->
+    </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+    </nav>
     </section>
     <!-- /.content -->
 
-        
-        <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
-          $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <!-- Bootstrap 4 -->
-        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- ChartJS -->
-        <script src="plugins/chart.js/Chart.min.js"></script>
-        <!-- Sparkline -->
-        <script src="plugins/sparklines/sparkline.js"></script>
-        <!-- JQVMap -->
-        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-        <!-- daterangepicker -->
-        <script src="plugins/moment/moment.min.js"></script>
-        <script src="plugins/daterangepicker/daterangepicker.js"></script>
-        <!-- Tempusdominus Bootstrap 4 -->
-        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <!-- Summernote -->
-        <script src="plugins/summernote/summernote-bs4.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.js"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="dist/js/pages/dashboard.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="dist/js/demo.js"></script>
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
 
 
-</body>
+  </body>
 
 </html>
