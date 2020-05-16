@@ -53,8 +53,19 @@ if (!empty($_SESSION['active'])) {
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Zapatería Novedades | Login</title>
-	<link rel="stylesheet" href="stilo.css">
+	
+  <title>Zapatería Novedades | Login</title>
+<body style="background-image: url(..//Proyecto/fondo.jpg);
+background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+" }>
 	<link rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="sistema/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="sistema/plugins/fontawesome-free/css/all.min.css">

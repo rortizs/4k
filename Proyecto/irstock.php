@@ -1,7 +1,7 @@
 <?php
 
 if (empty($_SESSION['active'])) {
-  header('location: ../');
+  header('dist/img/fondo.jpg');
 }
 
 include "../conexion.php";
@@ -47,8 +47,7 @@ if (isset($_GET['changestatus_id'])) {
     }
   </script>
 </head>
-
-<body style="background-image: url(../dist/img/fondo.jpg);
+<body style="background-image: url(../Proyecto/fondo.jpg);
 background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
