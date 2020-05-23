@@ -8,14 +8,14 @@
 
 			$idusuario=$_SESSION['iduser'];
 
-			$sql="INSERT into clientes (id_usuario,
+			$sql="INSERT into clientes (id_cliente,
 										nombre,
 										apellido,
 										direccion,
 										email,
 										telefono,
 										Nit)
-							values ('$idusuario',
+							values ('$idcliente',
 									'$datos[0]',
 									'$datos[1]',
 									'$datos[2]',
@@ -36,7 +36,7 @@
 							email,
 							telefono,
 							Nit 
-				from clientes";
+				from clientes where id_cliente='$idcliente'";
 			$result=mysqli_query($conexion,$sql);
 			$ver=mysqli_fetch_row($result);
 
