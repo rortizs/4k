@@ -10,14 +10,14 @@ class proveedores
 
 		$idusuario = $_SESSION['iduser'];
 
-		$sql = "INSERT into proveedores (id_proveedor,
+		$sql = "INSERT into proveedores (id_usuario,
 										nombre,
 										apellido,
 										direccion,
 										email,
 										telefono,
 										Nit)
-							values ('$idproveedor',
+							values ('$idusuario',
 									'$datos[0]',
 									'$datos[1]',
 									'$datos[2]',

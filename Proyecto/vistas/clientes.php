@@ -14,7 +14,7 @@ if(isset($_SESSION['usuario'])){
 	<body>
 
 
-		<div class="container">
+		<	<div class="container">
 			<h1>Clientes</h1>
 			<div class="row">
 				<div class="col-sm-4">
@@ -29,7 +29,7 @@ if(isset($_SESSION['usuario'])){
 						<input type="text" class="form-control input-sm" id="email" name="email">
 						<label>Telefono</label>
 						<input type="text" class="form-control input-sm" id="telefono" name="telefono">
-						<label>Nit</label>
+						<label>RFC</label>
 						<input type="text" class="form-control input-sm" id="rfc" name="rfc">
 						<p></p>
 						<span class="btn btn-primary" id="btnAgregarCliente">Agregar</span>
@@ -95,7 +95,7 @@ if(isset($_SESSION['usuario'])){
 					$('#direccionU').val(dato['direccion']);
 					$('#emailU').val(dato['email']);
 					$('#telefonoU').val(dato['telefono']);
-					$('#rfcU').val(dato['Nit']);
+					$('#rfcU').val(dato['rfc']);
 
 				}
 			});

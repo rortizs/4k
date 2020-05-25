@@ -47,7 +47,7 @@ background-repeat: no-repeat;
             <li class="active" ><a href="inicio.php" style="color:blue"><span class="glyphicon" ></span> Inicio </a>
             </li>
 
-              <li class="active" ><a href="inicio.php" style="color:blue"><span class="glyphicon" ></span> Proveedores </a>
+              <li class="active" ><a href="proveedores.php" style="color:blue"><span class="glyphicon" ></span> Proveedores </a>
             </li>
 
           </li>
