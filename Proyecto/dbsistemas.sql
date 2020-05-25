@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2020 a las 06:44:37
+-- Tiempo de generación: 25-05-2020 a las 20:35:18
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.27
 
@@ -97,7 +97,8 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`id_cliente`, `id_usuario`, `nombre`, `apellido`, `direccion`, `email`, `telefono`, `Nit`) VALUES
 (1, 1, 'Manuel', 'Coronado', '5 Avenida 9-35 Zona 3 Guatemala Ciudad', 'manuelcoronado@gmail.com', '4876245', '45213214521'),
 (2, 1, 'Carlos', 'Ramirez', 'Sanarate, El Progreso', 'carlosramirez@gmail.com', '54879654', '123456879'),
-(3, 1, 'Samuel', 'Ortiz', 'Zona 2 Sanarate', 'samuelortiz@gmail.com', '79254156', '1456214898');
+(3, 1, 'Samuel', 'Ortiz ', 'Zona 2 Sanarate', 'samuelortiz@gmail.com', '79254156', '1456214898'),
+(20, 0, 'julio', 'ASDF', 'ASDF', 'asdf@asdf.com', '1234568', '12356789');
 
 -- --------------------------------------------------------
 
@@ -122,6 +123,34 @@ INSERT INTO `imagenes` (`id_imagen`, `id_categoria`, `nombre`, `ruta`, `fechaSub
 (3, 3, 'Botas Montaña.jpg', '../../archivos/Botas Montaña.jpg', '2020-05-21'),
 (4, 4, 'Mocasina Formal.jpg', '../../archivos/Mocasina Formal.jpg', '2020-05-21'),
 (5, 5, 'Tacon Completo.jpg', '../../archivos/Tacon Completo.jpg', '2020-05-21');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id_proveedor` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
+  `apellido` varchar(200) DEFAULT NULL,
+  `direccion` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `telefono` varchar(200) DEFAULT NULL,
+  `Nit` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`id_proveedor`, `id_usuario`, `nombre`, `apellido`, `direccion`, `email`, `telefono`, `Nit`) VALUES
+(1, 1, 'Manuel', 'Coronado', '5 Avenida 9-35 Zona 3 Guatemala Ciudad', 'manuelcoronado@gmail.com', '4876245', '45213214521'),
+(2, 1, 'Carlos', 'Ramirez', 'Sanarate, El Progreso', 'carlosramirez@gmail.com', '54879654', '123456879'),
+(3, 1, 'Samuel', 'Ortiz ', 'Zona 2 Sanarate', 'samuelortiz@gmail.com', '79254156', '1456214898'),
+(20, 0, 'julio', 'ASDF', 'ASDF', 'asdf@asdf.com', '1234568', '12356789'),
+(21, 0, 'ert', 'etert', 'ertert', 'asdf@asdf.com', 'rtew', 'erte');
 
 -- --------------------------------------------------------
 
@@ -207,6 +236,12 @@ ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`id_imagen`);
 
 --
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`id_proveedor`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -232,13 +267,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
   MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
