@@ -4,13 +4,15 @@
 	require_once "../../clases/Categorias.php";
 	$fecha=date("Y-m-d");
 	$idusuario=$_SESSION['iduser'];
-	$categoria=$_POST['categoria'];
+	$categoria=$_POST['categoriaU'];
 
 	$datos=array(
 		$idusuario,
 		$categoria,
 		$fecha
 				);
+
+	
 
 	$obj= new categorias();
 

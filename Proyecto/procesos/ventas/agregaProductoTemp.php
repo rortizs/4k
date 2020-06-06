@@ -7,6 +7,7 @@
 
 	$idcliente=$_POST['clienteVenta'];
 	$idproducto=$_POST['productoVenta'];
+	$pago=$_POST['pago'];
 	$descripcion=$_POST['descripcionV'];
 	$cantidad=$_POST['cantidadV'];
 	$precio=$_POST['precioV'];
@@ -29,6 +30,7 @@
 
 	$articulo=$idproducto."||".
 				$nombreproducto."||".
+				$pago."||".
 				$descripcion."||".
 				$precio."||".
 				$ncliente."||".

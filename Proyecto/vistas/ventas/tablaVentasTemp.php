@@ -13,6 +13,7 @@
  	</caption>
  	<tr>
  		<td>Nombre</td>
+ 		<td>Pago</td>
  		<td>Descripcion</td>
  		<td>Precio</td>
  		<td>Cantidad</td>
@@ -32,6 +33,7 @@
  		<td><?php echo $d[1] ?></td>
  		<td><?php echo $d[2] ?></td>
  		<td><?php echo $d[3] ?></td>
+ 		<td><?php echo $d[4] ?></td>
  		<td><?php echo 1; ?></td>
  		<td>
  			<span class="btn btn-danger btn-xs" onclick="quitarP('<?php echo $i; ?>')">
@@ -41,9 +43,9 @@
  	</tr>
 
  <?php 
- 		$total=$total + $d[3];
+ 		$total=$total + $d[4];
  		$i++;
- 		$cliente=$d[4];
+ 		$cliente=$d[5];
  	}
  	endif; 
  ?>

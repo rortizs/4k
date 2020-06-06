@@ -1,5 +1,3 @@
-
-
 1.- bd : carpeta que contiene los snipets o querys de la bd listos para ejecutar
 2.- clases: contiene todas las clases de cada modulo, con sus respectivos metodos de crud
 3.- css: contiene los scripts css que serviran para dar estilo´personalizado en caso de ser util 

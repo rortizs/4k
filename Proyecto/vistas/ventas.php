@@ -11,22 +11,6 @@
 </head>
 <body>
 
-<body>
-  <body style="background-image: url(../img/TaconRosa1.jpg);
-background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  background-attachment: fixed;
-
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-" }>
-</body>
-
-	
-
 	<div class="container">
 		 <h1 class=table><strong>Venta de Productos</strong></h1>
 		 <div class="row">
