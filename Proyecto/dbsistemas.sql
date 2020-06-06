@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2020 a las 20:35:18
+-- Tiempo de generación: 06-06-2020 a las 02:56:48
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.27
 
@@ -47,8 +47,8 @@ CREATE TABLE `articulos` (
 INSERT INTO `articulos` (`id_producto`, `id_categoria`, `id_imagen`, `id_usuario`, `nombre`, `descripcion`, `cantidad`, `precio`, `fechaCaptura`) VALUES
 (2, 2, 2, 1, 'Chinita', 'Transparente', 6, 100, '2020-05-19'),
 (3, 3, 3, 1, 'Explorer', 'Para el campo y montaña', 10, 300, '2020-05-21'),
-(4, 4, 4, 1, 'Formal', 'Color café formal.', 12, 250, '2020-05-21'),
-(5, 5, 5, 1, 'Completo', 'Tacon formal color gris.', 10, 150, '2020-05-21');
+(5, 5, 5, 1, 'Completo', 'Tacon formal color gris.', 10, 150, '2020-05-21'),
+(6, 6, 6, 6, 'Formal', 'Mocasina e Hombre', 10, 250, '2020-05-27');
 
 -- --------------------------------------------------------
 
@@ -70,8 +70,9 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`id_categoria`, `id_usuario`, `nombreCategoria`, `fechaCaptura`) VALUES
 (2, 1, 'Zapatillas', '2020-05-14'),
 (3, 1, 'Botas', '2020-05-14'),
-(4, 1, 'Mocasinas', '2020-05-21'),
-(5, 1, 'Tacon', '2020-05-21');
+(5, 1, 'Tacon', '2020-05-21'),
+(6, 6, 'Mocasinas', '2020-05-27'),
+(13, 1, 'Sandalias', '2020-06-06');
 
 -- --------------------------------------------------------
 
@@ -95,10 +96,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cliente`, `id_usuario`, `nombre`, `apellido`, `direccion`, `email`, `telefono`, `Nit`) VALUES
-(1, 1, 'Manuel', 'Coronado', '5 Avenida 9-35 Zona 3 Guatemala Ciudad', 'manuelcoronado@gmail.com', '4876245', '45213214521'),
+(1, 1, 'Manuel', 'Coronado', 'Guastatoya, El Progreso', 'manuelcoronado@gmail.com', '4876245', '546321978'),
 (2, 1, 'Carlos', 'Ramirez', 'Sanarate, El Progreso', 'carlosramirez@gmail.com', '54879654', '123456879'),
-(3, 1, 'Samuel', 'Ortiz ', 'Zona 2 Sanarate', 'samuelortiz@gmail.com', '79254156', '1456214898'),
-(20, 0, 'julio', 'ASDF', 'ASDF', 'asdf@asdf.com', '1234568', '12356789');
+(21, 6, 'Rigoberta', 'Menchu', 'Sanarate', 'rigoberta@gmail.com', '54879652', '2354879');
 
 -- --------------------------------------------------------
 
@@ -121,8 +121,28 @@ CREATE TABLE `imagenes` (
 INSERT INTO `imagenes` (`id_imagen`, `id_categoria`, `nombre`, `ruta`, `fechaSubida`) VALUES
 (2, 2, 'Chinita Transparente.jpg', '../../archivos/Chinita Transparente.jpg', '2020-05-19'),
 (3, 3, 'Botas Montaña.jpg', '../../archivos/Botas Montaña.jpg', '2020-05-21'),
-(4, 4, 'Mocasina Formal.jpg', '../../archivos/Mocasina Formal.jpg', '2020-05-21'),
-(5, 5, 'Tacon Completo.jpg', '../../archivos/Tacon Completo.jpg', '2020-05-21');
+(5, 5, 'Tacon Completo.jpg', '../../archivos/Tacon Completo.jpg', '2020-05-21'),
+(6, 6, 'Mocasina Formal.jpg', '../../archivos/Mocasina Formal.jpg', '2020-05-27');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pago`
+--
+
+CREATE TABLE `pago` (
+  `nombre` varchar(20) NOT NULL,
+  `nombre2` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `pago`
+--
+
+INSERT INTO `pago` (`nombre`, `nombre2`) VALUES
+('Cheque', 'Cheque'),
+('Efectivo', 'Efectivo'),
+('Tarjeta', 'Tarjeta');
 
 -- --------------------------------------------------------
 
@@ -146,11 +166,10 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id_proveedor`, `id_usuario`, `nombre`, `apellido`, `direccion`, `email`, `telefono`, `Nit`) VALUES
-(1, 1, 'Manuel', 'Coronado', '5 Avenida 9-35 Zona 3 Guatemala Ciudad', 'manuelcoronado@gmail.com', '4876245', '45213214521'),
-(2, 1, 'Carlos', 'Ramirez', 'Sanarate, El Progreso', 'carlosramirez@gmail.com', '54879654', '123456879'),
-(3, 1, 'Samuel', 'Ortiz ', 'Zona 2 Sanarate', 'samuelortiz@gmail.com', '79254156', '1456214898'),
-(20, 0, 'julio', 'ASDF', 'ASDF', 'asdf@asdf.com', '1234568', '12356789'),
-(21, 0, 'ert', 'etert', 'ertert', 'asdf@asdf.com', 'rtew', 'erte');
+(22, 1, 'Calzado', 'Modelo', '19 Av. 14-31 Zona 13 Guatemala', 'Modelo@gmail.com', '22886354', '9354789'),
+(23, 1, 'Rony', 'Zapatos', '39 Av. 18-45 Zona 7 Guatemala', 'ronyzapatos@gmail.com', '25874312', '3254689'),
+(24, 1, 'American', 'Calzado', '10 av. 8-95 Zona 1 Guatemala', 'american@gmail.com', '23459765', '2489348'),
+(25, 6, 'Zapatos', 'Locos', 'Guatemala', 'zapatoslocos@gmail.com', '54879658', '12548963');
 
 -- --------------------------------------------------------
 
@@ -175,7 +194,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `email`, `password`,
 (1, 'Marvin', 'Orellana', 'MOrellana', '8cb2237d0679ca88db6464eac60da96345513964', '2020-05-14'),
 (2, 'Samuel', 'Ortiz', 'SOrtiz', '8cb2237d0679ca88db6464eac60da96345513964', '2020-05-21'),
 (3, 'Welcer', 'Paiz', 'WPaiz', '8cb2237d0679ca88db6464eac60da96345513964', '2020-05-21'),
-(4, 'Julio', 'Rodas', 'JRodas', '8cb2237d0679ca88db6464eac60da96345513964', '2020-05-21');
+(4, 'Julio', 'Rodas', 'JRodas', '8cb2237d0679ca88db6464eac60da96345513964', '2020-05-21'),
+(6, 'Richard', 'Ortiz', 'ROrtiz', '8cb2237d0679ca88db6464eac60da96345513964', '2020-05-27');
 
 -- --------------------------------------------------------
 
@@ -205,7 +225,8 @@ INSERT INTO `ventas` (`id_venta`, `id_cliente`, `id_producto`, `id_usuario`, `pr
 (3, 1, 1, 1, 100, '2020-05-14'),
 (4, 1, 1, 1, 100, '2020-05-19'),
 (5, 1, 2, 1, 100, '2020-05-20'),
-(6, 1, 2, 1, 100, '2020-05-20');
+(6, 1, 2, 1, 100, '2020-05-20'),
+(7, 3, 3, 1, 300, '2020-05-26');
 
 --
 -- Índices para tablas volcadas
@@ -236,6 +257,12 @@ ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`id_imagen`);
 
 --
+-- Indices de la tabla `pago`
+--
+ALTER TABLE `pago`
+  ADD PRIMARY KEY (`nombre`);
+
+--
 -- Indices de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
@@ -255,37 +282,37 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

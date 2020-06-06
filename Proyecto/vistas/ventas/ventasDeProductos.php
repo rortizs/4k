@@ -22,6 +22,29 @@ $conexion=$c->conexion();
 					<option value="<?php echo $cliente[0] ?>"><?php echo $cliente[1]." ".$cliente[2] ?></option>
 				<?php endwhile; ?>
 			</select>
+
+			<!--    <******************************************************************************************-->
+				
+				
+			
+			<label>Forma de Pago</label>
+			<select readonly="" type="text" class="form-control input-sm" id="pago" name="pago">
+				
+				<?php
+				$sql="SELECT nombre,
+				nombre2
+				from pago";
+				$result=mysqli_query($conexion,$sql);
+
+				while ($pago=mysqli_fetch_row($result)):
+					?>
+
+					<option value="<?php echo $pago[0] ?>"><?php echo $pago[1] ?></option>
+				<?php endwhile; ?>
+			</select>
+
+
+			<!--******************************************************************************************-->
 			<label>Producto</label>
 			<select class="form-control input-sm" id="productoVenta" name="productoVenta">
 				<option value="A">Seleccionar Producto</option>
@@ -36,6 +59,7 @@ $conexion=$c->conexion();
 					<option value="<?php echo $producto[0] ?>"><?php echo $producto[1] ?></option>
 				<?php endwhile; ?>
 			</select>
+			
 			<label>Descripcion</label>
 			<textarea readonly="" id="descripcionV" name="descripcionV" class="form-control input-sm"></textarea>
 			<label>Cantidad</label>
