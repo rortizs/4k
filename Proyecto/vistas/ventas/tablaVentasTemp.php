@@ -49,6 +49,7 @@
  ?>
 
  	<tr>
+ 	
  		<td>Total: <?php echo "Q".$total; ?></td>
  	</tr>
 
